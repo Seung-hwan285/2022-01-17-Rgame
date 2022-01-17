@@ -7,15 +7,18 @@ const $=(s)=>document.querySelector(s);
 
 const Namebtn =$('#btn-submit');
 
-
+const PATTERN = /\s/g;
 const carTemplate =(carName)=>{
-
 
     carName=carName.trim();
     console.log(carName.length);
     if(carName.length > 5){
         alert("5자 이하만 입력가능");
-    }else{
+    }
+    else if(carName.match(PATTERN)){
+        alert('공백이 존재합니다');
+    }
+    else{
         return `<div>
             <div class="car-player mr-2">${carName}</div>
         </div>`;

@@ -1,6 +1,10 @@
 // TODO 자동차 화면에 출력되는지 테스트
 // -[x] 자동차 이름 쉼표 기준으로 입력되서 출력되는지 테스트
 // -[x] 자동차 이름 5자리 제한인지 테스트
+// -[x] 공백만 입력된 경우 경고 테스트
+// -[] 특수문자 입력된 경우 경고 테스트
+
+
 describe('My First Test', () => {
     beforeEach('접속', () => {
         cy.visit('http://localhost:63342/RGame/index.html?_ijt=qc6kqdfci258c7fhodhkfi6oa&_ij_reload=RELOAD_ON_SAVE');
@@ -26,9 +30,6 @@ describe('My First Test', () => {
     });
 
 
-
-
-
     it('5자리 제한 테스트',()=>{
         const stub = cy.stub();
 
@@ -39,10 +40,18 @@ describe('My First Test', () => {
             .then(()=>{
                 expect(stub.getCall(0)).to.be.calledWith("5자 이하만 입력가능");
             });
+    });
+
+    it('이름에 공백 문자 테스트',()=>{
+        const stub = cy.stub();
+        cy.on('window:alert',stub);
+
+        cy.get('#car-name').type('EA ST');
 
 
-
-
-
+        cy.get('#btn-submit').click()
+            .then(()=>{
+                expect(stub.getCall(0)).to.be.calledWith('공백이 존재합니다');
+            });
     });
 });
