@@ -38,7 +38,7 @@ describe('My First Test', () => {
             .type('EASTSEX')
         cy.get('#btn-submit').click()
             .then(()=>{
-                expect(stub.getCall(0)).to.be.calledWith("5자 이하만 입력가능");
+                expect(stub.getCall(0)).to.be.calledWith('5자 이하만 입력가능');
             });
     });
 
@@ -53,5 +53,18 @@ describe('My First Test', () => {
             .then(()=>{
                 expect(stub.getCall(0)).to.be.calledWith('공백이 존재합니다');
             });
+    });
+
+    it('이름에 특수문자 테스트',()=>{
+       const stub = cy.stub();
+
+       cy.on('window:alert',stub);
+
+       cy.get('#car-name').type('!EAST');
+
+       cy.get('#btn-submit').click()
+           .then(()=>{
+              expect(stub.getCall(0)).to.be.calledWith('특수문자가 존재합니다');
+           });
     });
 });
