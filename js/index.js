@@ -2,14 +2,14 @@
 // -[x] 자동차 이름은 쉼표 기준으로 구분 5자 이하만 가능하다.
 // -[x] 자동차 이름을 화면에 출력한다.
 
+import {PATTERN} from "./utils/constant.js";
+import {PATTERN_SPC} from "./utils/constant.js";
+
 const $=(s)=>document.querySelector(s);
 
 
 const Namebtn =$('#btn-submit');
 
-const PATTERN = /\s/g;
-
-const PATTERN_SPC = /[~!@#$%^&*()_+|<>?:{}]/;
 
 const carTemplate =(carName)=>{
 
