@@ -1,4 +1,5 @@
 import {PATTERN, PATTERN_SPC} from "../utils/constant.js";
+import {carUserCount} from "./carUserCount.js";
 
 
 const $=(s)=>document.querySelector(s);
@@ -24,42 +25,65 @@ const caramePatternSpc =(carName)=>{
     }
 }
 
+const radom =()=>{
+        return Math.floor(Math.random()*10);
+}
 
-// -[x] 1. 시도할 횟수 만큼 입력
-// -[x] 2. 랜덤값을 자동차마다  생성
-// -[x] 3. 4이상이면 화살표추가 3이하이면 빈값
+const isEffectiveScore=(num)=>{
+    console.log(num);
+    return num >= 4;
+}
+
 
 const carTemplate =(carName)=>{
 
-    carName.trim();
 
+    carName=carName.trim();
+    radom();
     carNameLength(carName);
     carNameisDuplicate(carName);
     caramePatternSpc(carName);
 
-        return `<div>
-            <div  class="car-player mr-2">${carName}</div>
-            <div  id="rating">${randomNum()}</div>
-        </div>`;
+        return`<div >
+            <div class="car-player mr-2" dataset-forward-count="0">
+              ${carName}
+            </div>
+          </div>`;
 
 
 };
+const arrowTemplate = () => {
+    return `<div class="forward-icon mt-2">⬇️️</div>`;
+};
 
+const updateRacingArrow =(cars)=>{
+    cars.forEach(car=>{
+        let isForward = isEffectiveScore(radom());
+
+    // 4이상이면 화살표 추가
+        if(isForward){
+            car.parentNode.insertAdjacentHTML('beforeend', arrowTemplate());
+        }
+        console.log(car);
+        console.log(car.parentNode);
+
+    });
+}
 
 export const randomNum=()=>{
-    const  rating = Math.floor(Math.random()*10);
 
-    if(rating > 4){
-        //return `<div class="forward-icon mt-2">⬇️️</div>`;
-        return rating;
-    }
-    else{
-        //return `<div class="forward-icon mt-2"></div>`;
-        return rating;
-    }
+    // 쿼리셀렉터ALL 로 자동차 이름 값들 가져오기
+    //
+    const cars = document.querySelectorAll('.car-player');
+    console.log(cars);
 
+    for(let i=0; i<carUserCount(); i++){
+        updateRacingArrow(cars);
+    }
 
 }
+
+
 export const carTemplateStart=()=>{
 
 
@@ -67,5 +91,7 @@ export const carTemplateStart=()=>{
 
     const totalCarNames = carInput.value.split(",");
 
+
     nameScreen.innerHTML = totalCarNames.map(car=>carTemplate(car)).join("");
+    randomNum();
 };
