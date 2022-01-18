@@ -12,6 +12,7 @@ describe('My First Test', () => {
 
 
 
+
     it('자동차 이름 쉼표 기준으로 입력 화면 테스트',()=>{
        const carName = ['EAST', 'WEST', 'SOUTH', 'NORTH'];
 
