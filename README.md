@@ -1,8 +1,10 @@
 # 2022-01-17-Rgame
 
-## 어려웠던 점
 ### BDD Assertions
 https://docs.cypress.io/guides/references/assertions#Chai
+
+## 어려웠던 점
+
 
 ### 1. 차 이름을 화면에 출력
 처음에는 innerHTML에 배열 인덱스값을 참조해서 출력을하게 만들었습니다.<br>
