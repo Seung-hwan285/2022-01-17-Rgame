@@ -5,6 +5,12 @@
 // -[x] 특수문자 입력된 경우 경고 테스트
 
 
+// TODO 시도횟수 테스트
+// -[x] 정수만 입력가능하게 (음수 X) 테스트
+// -[] 공백 입력안되게 테스트
+
+
+
 describe('My First Test', () => {
     beforeEach('접속', () => {
         cy.visit('http://localhost:63342/RGame/index.html?_ijt=qc6kqdfci258c7fhodhkfi6oa&_ij_reload=RELOAD_ON_SAVE');
@@ -68,4 +74,26 @@ describe('My First Test', () => {
               expect(stub.getCall(0)).to.be.calledWith('특수문자가 존재합니다');
            });
     });
+
+
+    it('횟수가 양의 정수,공백인지 테스트',()=>{
+       const stub = cy.stub();
+
+       cy.on('window:alert',stub);
+
+       cy.get('#car-count').type('-1');
+       cy.get('#btn-submit-count').click()
+           .then(()=>{
+              expect(stub.getCall(0)).to.be.calledWith('양의 정수 입력해주세요');
+           });
+
+
+       cy.get('#car-count').type(' ');
+        cy.get('#btn-submit-count').click()
+            .then(()=>{
+                expect(stub.getCall(0)).to.be.calledWith('양의 정수 입력해주세요');
+            });
+    });
+
+
 });

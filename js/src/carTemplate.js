@@ -30,7 +30,7 @@ const carTemplate =(carName)=>{
     carNameLength(carName);
     carNameisDuplicate(carName);
     caramePatternSpc(carName);
-    
+
         return `<div>
             <div class="car-player mr-2">${carName}</div>
         </div>`;
