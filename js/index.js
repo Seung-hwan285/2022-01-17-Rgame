@@ -4,6 +4,7 @@
 
 
 import {carTemplateStart} from "./src/carTemplate.js";
+import {carUserCount} from "./src/carUserCount.js";
 
 const $=(s)=>document.querySelector(s);
 
@@ -14,15 +15,4 @@ const numberBtn = $('#btn-submit-count');
 
 
 nameBtn.addEventListener("click",carTemplateStart);
-
-
-numberBtn.addEventListener("click",(e)=>{
-
-    const userNumber = $('#car-count');
-
-    console.log(userNumber.value);
-    if(userNumber.value <= 0 || userNumber.value ===''){
-        alert('양의 정수 입력해주세요');
-    }
-
-});
+numberBtn.addEventListener("click",carUserCount);
