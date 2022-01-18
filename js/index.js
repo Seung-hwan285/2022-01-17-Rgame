@@ -2,6 +2,9 @@
 // -[x] 자동차 이름은 쉼표 기준으로 구분 5자 이하만 가능하다.
 // -[x] 자동차 이름을 화면에 출력한다.
 
+// TODO step 2
+// -[] 횟수 버튼 입력하면 각 자동차 이름에 
+
 
 import {carTemplateStart} from "./src/carTemplate.js";
 import {carUserCount} from "./src/carUserCount.js";
@@ -16,3 +19,4 @@ const numberBtn = $('#btn-submit-count');
 
 nameBtn.addEventListener("click",carTemplateStart);
 numberBtn.addEventListener("click",carUserCount);
+

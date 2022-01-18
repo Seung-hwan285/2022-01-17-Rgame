@@ -9,9 +9,13 @@
 // -[x] 정수만 입력가능하게 (음수 X) 테스트
 // -[x] 공백 입력안되게 테스트
 
-// TODO 자동차 시도횟수만큼 나오게
+// TODO 자동차 경주 테스트
+// -[] random 값이 0~9 정수를 반환하는지 테스트
+// -[] 자동차에 4이상이 들어오면 화살표 추가 (전진)
+// -[] 자동차에 3이하 들어오면 화살표 제거  (멈춤)
 
 
+import {randomNum} from "../../../../js/src/carTemplate";
 
 describe('My First Test', () => {
     beforeEach('접속', () => {
@@ -27,7 +31,7 @@ describe('My First Test', () => {
 
 
        cy.get('#car-name')
-           .type('EAST, WEST, SOUTH, NORTH');
+           .type('EAST,WEST,SOUTH,NORTH');
 
        cy.get('#btn-submit').click();
 
@@ -96,6 +100,26 @@ describe('My First Test', () => {
                 expect(stub.getCall(0)).to.be.calledWith('양의 정수 입력해주세요');
             });
     });
+
+
+    it('각 자동차 random 0~9값 반환 테스트',()=>{
+        cy.get('#car-name')
+            .type('EAST, WEST, SOUTH, NORTH');
+
+        cy.get('#btn-submit').click();
+
+        // 리스트 0~9까지 생성
+        const possible  =  Array.from({length:10}).map((v,i)=>i+0);
+
+        console.log(possible);
+
+
+        for(let i =0; i < 10; i++){
+            expect(possible).to.include(randomNum());
+        }
+
+    });
+
 
 
 });
