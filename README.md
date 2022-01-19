@@ -184,7 +184,7 @@ dataset으로 관리를하면 좀더 쉽게 값을 굳이 hidden처리 안해도
 <br>
 
 ### 6. dataset undefined 에러
-계속해서 undeined 값이 나오는것을 볼 수 있었습니다.
+dataset에 값을 확인하기 위해 log를 찍으면 undeined 값이 나오는것을 볼 수 있었습니다.
 
 
 ### 해결방안
