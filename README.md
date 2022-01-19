@@ -45,7 +45,8 @@ export const carTemplateStart=()=>{
 ```
 
 ### 2. 각 조건에 맞게 랜덤값 부여하기
-처음에는  랜덤값을 받아서 if ~else문으로 비교를해서 화살표를 추가하는 방식으로 코드를 짰습니다.
+처음에는  랜덤값을 받아서 if ~else문으로 비교를해서 화살표를 추가하는 방식으로 코드를 짰습니다.<br>
+하지만 이렇게하면 계속 값이 하나씩만 추가가되고, 화살표가 추가가되질 않았습니다.
 ```javascript
 export const randomNum=()=>{
     const  rating = Math.floor(Math.random()*10);
@@ -63,7 +64,36 @@ export const randomNum=()=>{
 }
 ```
 
-하지만 이렇게하면 계속 
+### 해결방안
+querySelectorAll 생성해서 .car-player 리스트를 만들어주고, <br>
+forEach를 돌려서 각 리스트 값마다 화살표를 추가하는 방식으로 리펙토링을 진행했습니다.
+
+```javascript
+const upadateArrow = (cars)=>{
+    cars.forEach(car=>{
+    if(radom() > 4){
+           car.parentNode.insertAdjacentHTML('beforeend',arrowTemplate());
+    }
+
+
+    });
+}
+
+
+export const randomNum=()=>{
+
+    // 쿼리셀렉터ALL 로 자동차 이름 값들 가져오기
+    const cars = document.querySelectorAll('.car-player');
+
+    for(let i=0; i<carUserCount(); i++){
+        upadateArrow(cars);
+    }
+
+}
+
+```
+
+
 
 
 
