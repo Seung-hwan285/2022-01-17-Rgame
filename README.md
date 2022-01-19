@@ -171,3 +171,50 @@ https://stackoverflow.com/questions/65309568/cypress-check-for-an-empty-element
         
           </div>`;
 ```
+
+### 5. 전진횟수 dataset으로 관리
+처음에 max값을 어떻게 추출하지라는 생각을 했습니다.
+div 태그를 따로 추가해서 hidden로 만들고 값을 추가할려했지만, 원치 않는 에러들이 계속 발생하였습니다.
+
+### 해결방안
+dataset으로 관리를하면 좀더 쉽게 값을 굳이 hidden처리 안해도 관리를 할 수 있습니다.
+
+### 6. dataset undefined 에러
+계속해서 undeined 값이 나오는것을 볼 수 있었습니다.
+
+
+### 해결방안
+카멜표기법으로 이름을 수정해도 변함이 없었습니다.
+원인을 잘몰라서 이름을 축약하게 되었고, 값이 정상적으로 들어가는걸 확인할 수 있었습니다.
+
+```javascript
+const carTemplate =(carName)=>{
+
+    carName=carName.trim();
+    carName=carName.replace(/\n/g, "");
+
+    carNameLength(carName);
+    carNameisDuplicate(carName);
+    caramePatternSpc(carName);
+
+    return`<div >
+            <div class="car-player mr-2" data-forward="0">${carName}</div>
+          </div>`;
+};
+
+const updateRacingArrow =(cars)=>{
+    cars.forEach(car=>{
+        // 4이상이면 화살표 추가
+        if(radom() > 4){
+
+            car.dataset.forward = Number(car.dataset.forward)+1;
+
+
+            car.parentNode.insertAdjacentHTML('beforeend', arrowTemplate());
+        }
+    });
+}
+
+```
+
+    
