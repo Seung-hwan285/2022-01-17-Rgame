@@ -172,12 +172,16 @@ https://stackoverflow.com/questions/65309568/cypress-check-for-an-empty-element
           </div>`;
 ```
 
+<br>
+
 ### 5. 전진횟수 dataset으로 관리
 처음에 max값을 어떻게 추출하지라는 생각을 했습니다.
 div 태그를 따로 추가해서 hidden로 만들고 값을 추가할려했지만, 원치 않는 에러들이 계속 발생하였습니다.
 
 ### 해결방안
 dataset으로 관리를하면 좀더 쉽게 값을 굳이 hidden처리 안해도 관리를 할 수 있습니다.
+
+<br>
 
 ### 6. dataset undefined 에러
 계속해서 undeined 값이 나오는것을 볼 수 있었습니다.
