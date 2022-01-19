@@ -25,29 +25,23 @@ const caramePatternSpc =(carName)=>{
     }
 }
 
-const radom =()=>{
-        return Math.floor(Math.random()*10);
+export const radom =()=>{
+    return Math.floor(Math.random()*10);
 }
-
-const isEffectiveScore=(num)=>{
-    console.log(num);
-    return num >= 4;
-}
-
 
 const carTemplate =(carName)=>{
 
 
     carName=carName.trim();
-    radom();
+    carName=carName.replace(/\n/g, "");
+
     carNameLength(carName);
     carNameisDuplicate(carName);
     caramePatternSpc(carName);
-
-        return`<div >
-            <div class="car-player mr-2" dataset-forward-count="0">
-              ${carName}
-            </div>
+    console.log(carName);
+    return`<div >
+            <div class="car-player mr-2" >${carName}</div>
+        
           </div>`;
 
 
@@ -58,14 +52,12 @@ const arrowTemplate = () => {
 
 const updateRacingArrow =(cars)=>{
     cars.forEach(car=>{
-        let isForward = isEffectiveScore(radom());
 
-    // 4이상이면 화살표 추가
-        if(isForward){
+        // 4이상이면 화살표 추가
+        if(radom() > 4){
             car.parentNode.insertAdjacentHTML('beforeend', arrowTemplate());
         }
-        console.log(car);
-        console.log(car.parentNode);
+
 
     });
 }

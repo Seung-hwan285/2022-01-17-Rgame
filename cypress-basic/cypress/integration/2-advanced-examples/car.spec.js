@@ -11,36 +11,18 @@
 
 // TODO 자동차 경주 테스트
 // -[x] random 값이 0~9 정수를 반환하는지 테스트
-// -[] 자동차에 4이상이 들어오면 화살표 추가 (전진)
-// -[] 자동차에 3이하 들어오면 화살표 제거  (멈춤)
+// -[x] 자동차에 4이상이 들어오면 화살표 추가 (전진)
+// -[x] 자동차에 3이하 들어오면 화살표 제거  (멈춤)
 
 
-import {randomNum} from "../../../../js/src/carTemplate";
+
+import {radom} from "../../../../js/src/carTemplate.js";
 
 describe('My First Test', () => {
     beforeEach('접속', () => {
         cy.visit('http://localhost:63342/RGame/index.html?_ijt=qc6kqdfci258c7fhodhkfi6oa&_ij_reload=RELOAD_ON_SAVE');
     });
 
-
-
-
-    it('자동차 이름 쉼표 기준으로 입력 화면 테스트',()=>{
-       const carName = ['EAST', 'WEST', 'SOUTH', 'NORTH'];
-
-
-
-       cy.get('#car-name')
-           .type('EAST,WEST,SOUTH,NORTH');
-
-       cy.get('#btn-submit').click();
-
-
-       cy.get('.car-player')
-           .each(($div,index)=>{
-               cy.get($div).should('have.text',carName[index]);
-           });
-    });
 
 
 
@@ -103,23 +85,48 @@ describe('My First Test', () => {
     });
 
 
-    // it('각 자동차 random 0~9값 반환 테스트',()=>{
-    //     cy.get('#car-name')
-    //         .type('EAST, WEST, SOUTH, NORTH');
-    //
-    //     cy.get('#btn-submit').click();
-    //
-    //     // 리스트 0~9까지 생성
-    //     const possible  =  Array.from({length:10}).map((v,i)=>i+0);
-    //
-    //     console.log(possible);
-    //
-    //
-    //     for(let i =0; i < 10; i++){
-    //         expect(possible).to.include(randomNum());
-    //     }
-    //
-    // });
+    it('각 자동차 random 0~9값 반환 테스트',()=>{
+        cy.get('#car-name')
+            .type('EAST, WEST, SOUTH, NORTH');
+
+        cy.get('#btn-submit').click();
+
+        // 리스트 0~9까지 생성
+        const possible  =  Array.from({length:10}).map((v,i)=>i+0);
+
+
+
+        for(let i =0; i < 10; i++){
+            expect(possible).to.include(radom());
+        }
+
+    });
+
+
+
+    it('자동차 경주가 정상적으로 진행되는지 테스트',()=>{
+        const possible = Array.from({length:10}).map((v,i)=>i+0);
+        for(let i =0; i < 10; i++){
+            expect(possible).to.include(radom());
+        }
+        const carName=['EAST','WEST','SOUTH','NORTH'];
+
+        cy.get('#car-name').type(carName.join(','));
+
+        cy.get('#car-count')
+            .type(1);
+
+        cy.get('#btn-submit-count').click();
+        cy.get('#btn-submit').click();
+
+
+        cy.get('.car-player')
+            .each(($div,index)=>{
+
+                cy.get($div).should('have.text',carName[index]);
+            });
+
+    });
 
 
 
