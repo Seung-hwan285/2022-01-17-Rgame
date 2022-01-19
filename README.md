@@ -143,3 +143,31 @@ const upadateArrow = (car)=>{
 ```
 
 
+### 4. 자동차 경주가 정상적으로 진행되는지 테스트 빈값 오류
+carTemplate.js에서 줄바꿈 , 공백 제거를 걸어두었지만 에러가 계속 나오는 현상.
+
+### 해결방안
+https://stackoverflow.com/questions/65309568/cypress-check-for-an-empty-element
+
+처음에 줄바꿈이랑 공백제거를 추가하면 되겠지? 라고 생각을 했지만 테스트는 계속 빈값을 나타나고 있었습니다.
+
+하지만 좀더 찾아보니 스텍오버플로우에  cypress는 테스트 주체가 되는 .js파일에 줄바꿈을 인식한다는 것을 보고 
+기존 코드에서 리펙토링을 진행하였습니다.
+
+#### 원인 코드
+```javascript
+    return`<div >
+            <div class="car-player mr-2" >
+              ${carName}
+            </div>
+        
+          </div>`;
+```
+
+#### 수정
+```javascript
+    return`<div >
+            <div class="car-player mr-2" >${carName}</div>
+        
+          </div>`;
+```
