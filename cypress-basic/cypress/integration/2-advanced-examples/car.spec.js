@@ -13,6 +13,7 @@
 // -[x] random 값이 0~9 정수를 반환하는지 테스트
 // -[x] 자동차에 4이상이 들어오면 화살표 추가 (전진)
 // -[x] 자동차에 3이하 들어오면 화살표 제거  (멈춤)
+// -[] 우승자 테스트
 
 
 
@@ -122,13 +123,9 @@ describe('My First Test', () => {
 
         cy.get('.car-player')
             .each(($div,index)=>{
-
                 cy.get($div).should('have.text',carName[index]);
             });
 
     });
-
-
-
 
 });
