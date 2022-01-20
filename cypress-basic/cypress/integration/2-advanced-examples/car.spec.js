@@ -128,4 +128,18 @@ describe('My First Test', () => {
 
     });
 
+
+    it('자동차 다시시작 버튼누르면 진행되는지 테스트',()=>{
+       cy.get('#car-name').type('EAST,WEST,SOUTH');
+       cy.get('#car-count').type(1);
+
+
+       cy.get('#btn-submit-count').click();
+
+
+       cy.get('#car-name').should('have.text',"");
+        cy.get('#car-count').should('have.text',"");
+
+    });
+
 });

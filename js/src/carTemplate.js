@@ -66,7 +66,8 @@ const getWinner =()=>{
 
 
     // is not a function 발생중
-    // 값이 함수가 아닐때 발생
+    // NodeList에 map으로 받아주고있어서 발생하는듯함.
+    // -> [...cars] 배열로변환
     // const maxScore = Math.max(
     //     cars.map((car)=>Number(car.dataset.forwardCount)));
 
@@ -91,7 +92,17 @@ export const randomNum=()=>{
 }
 
 
+export const resetStartGame=()=>{
 
+    const carInput = $('#car-name');
+
+    const carCount =$('#car-count');
+
+
+    carInput.value = "";
+    carCount.value = "";
+
+};
 
 
 export const carTemplateStart=()=>{
@@ -104,5 +115,5 @@ export const carTemplateStart=()=>{
     randomNum();
 
     const win = $('#winner');
-    win.innerText=getWinner();
+    win.innerHTML=`🏆 최종 우승자: ${getWinner()}🏆`;
 };
