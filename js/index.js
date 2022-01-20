@@ -9,8 +9,10 @@
 // -[x] 리셋 버튼 클릭하면 처음부터 다시 시작
 
 
-import {carTemplateStart, resetStartGame} from "./src/carTemplate.js";
+import {carTemplateStart} from "./src/carTemplate.js";
+
 import {carUserCount} from "./src/carUserCount.js";
+import {resetStartGame} from "./src/resetStart.js";
 
 const $=(s)=>document.querySelector(s);
 
