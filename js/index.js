@@ -6,7 +6,7 @@
 // -[x] 횟수 버튼 입력하면 각 자동차 이름에 랜덤으로 값 들어가고 조건에 맞게 화살표 추가
 
 // TODO step 3
-// -[] 리셋 버튼 클릭하면 처음부터 다시 시작
+// -[x] 리셋 버튼 클릭하면 처음부터 다시 시작
 
 
 import {carTemplateStart, resetStartGame} from "./src/carTemplate.js";
