@@ -61,7 +61,7 @@ const updateRacingArrow =(cars)=>{
 }
 
 
-const getWinner =()=>{
+export const getWinner =()=>{
     const cars = document.querySelectorAll('.car-player');
 
 
@@ -78,7 +78,7 @@ const getWinner =()=>{
 
     return [...cars]
         .filter((car)=>Number(car.dataset.forward)===maxScore)
-        .map((car) => car.innerText);
+        .map((car) => car.innerHTML);
 }
 
 export const randomNum=()=>{
@@ -97,10 +97,16 @@ export const resetStartGame=()=>{
     const carInput = $('#car-name');
 
     const carCount =$('#car-count');
-
+    const gameScreen = $('#game-process-screen');
+    const gameWinner =$('#game-winner');
 
     carInput.value = "";
     carCount.value = "";
+
+    gameScreen.innerText ="";
+
+    gameWinner.innerText="";
+
 
 };
 
@@ -114,6 +120,6 @@ export const carTemplateStart=()=>{
     nameScreen.innerHTML = totalCarNames.map(car=>carTemplate(car)).join("");
     randomNum();
 
-    const win = $('#winner');
+    const win = $('#game-winner');
     win.innerHTML=`🏆 최종 우승자: ${getWinner()}🏆`;
 };

@@ -15,9 +15,12 @@
 // -[x] 자동차에 3이하 들어오면 화살표 제거  (멈춤)
 // -[] 우승자 테스트
 
+// TODO 다시시작 테스트
+// -[x] 다시시작 버튼 누르면 값 전부 초기화
 
 
-import {radom} from "../../../../js/src/carTemplate.js";
+
+import {getWinner, radom} from "../../../../js/src/carTemplate.js";
 
 describe('My First Test', () => {
     beforeEach('접속', () => {
@@ -128,18 +131,47 @@ describe('My First Test', () => {
 
     });
 
+    it('최종 우승자 나오는지 테스트',()=>{
+        const carName=['EAST','WEST','SOUTH','NORTH'];
+
+        cy.get('#car-name').type(carName.join(','));
+
+        cy.get('#car-count')
+            .type(1);
+
+        cy.get('#btn-submit-count').click();
+        cy.get('#btn-submit').click();
+
+
+
+
+        let win= getWinner();
+
+        console.log(win);
+
+        cy.get('#game-winner').should('have.text',`🏆 최종 우승자: ${win}🏆`);
+
+
+
+    });
+
 
     it('자동차 다시시작 버튼누르면 진행되는지 테스트',()=>{
        cy.get('#car-name').type('EAST,WEST,SOUTH');
        cy.get('#car-count').type(1);
 
 
+
        cy.get('#btn-submit-count').click();
+       cy.get('#btn-submit').click();
+
+       cy.get('#btn-submit-reset').click();
 
 
        cy.get('#car-name').should('have.text',"");
-        cy.get('#car-count').should('have.text',"");
-
+       cy.get('#car-count').should('have.text',"");
+       cy.get('#game-winner').should('have.text',"");
+       cy.get('#game-process-screen').should('have.text',"");
     });
 
 });
