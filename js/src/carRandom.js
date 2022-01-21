@@ -14,7 +14,7 @@ export const randomNum=()=>{
 
 
 
-        setTimeout(updateRacingArrow(cars),1000);
+        updateRacingArrow(cars);
     }
 
 }

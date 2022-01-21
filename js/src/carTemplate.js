@@ -1,6 +1,4 @@
 import {caramePatternSpc, carNameisDuplicate, carNameLength} from "../Exception/carNameExcpetion.js";
-import {randomNum} from "./carRandom.js";
-import {getWinner} from "./getWinner.js";
 
 
 const $=(s)=>document.querySelector(s);

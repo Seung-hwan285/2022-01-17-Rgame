@@ -6,6 +6,9 @@ export const arrowTemplate = () => {
 
 //자동차 게임 턴이 진행될때마다 각 자동차 전진은 텀이 생김
 // 버퍼링이 돌다가 값이 나오면 화살표로 추가
+// 화살표 추가되면 버퍼링 지우기
+
+
 
 export const setTimeoutArrow=()=>{
     return `<div  class="relative spinner-container">
@@ -21,8 +24,6 @@ export  const setTimeClear =()=>{
 
 export const updateRacingArrow =(cars)=>{
 
-
-
     cars.forEach(car=>{
         car.parentNode.insertAdjacentHTML('beforeend',setTimeoutArrow());
         if(radom() > 4){
@@ -34,15 +35,14 @@ export const updateRacingArrow =(cars)=>{
               return  car.parentNode.insertAdjacentHTML('beforeend', arrowTemplate());
 
             }
-
             setTimeout(function (){
+
                 carStart();
             },2000);
-
-
-
         }
-    });
+        const meterial =document.querySelector('.spinner-container');
+        meterial.remove();
 
+    });
 
 }

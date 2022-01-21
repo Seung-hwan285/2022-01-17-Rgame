@@ -15,6 +15,7 @@ import {carUserCount} from "./src/carUserCount.js";
 import {resetStartGame} from "./src/resetStart.js";
 import {carGameStart} from "./src/carGameStart.js";
 
+
 const $=(s)=>document.querySelector(s);
 
 

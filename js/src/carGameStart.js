@@ -3,7 +3,12 @@ import {carTemplateStart} from "./carTemplate.js";
 import {randomNum} from "./carRandom.js";
 import {setTimeClear} from "./carArrow.js";
 
+
 const $=(s)=>document.querySelector(s);
+
+
+const spinner = document.querySelectorAll('.material');
+
 
 export const carGameStart=()=>{
     carTemplateStart();
@@ -17,5 +22,6 @@ export const carGameStart=()=>{
     });
 
     $('#game-winner').innerHTML=`🏆 최종 우승자:${winner[0]} 🏆`;
+    console.log(spinner);
     setTimeClear();
 }
