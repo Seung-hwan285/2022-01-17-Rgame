@@ -149,7 +149,6 @@ describe('My First Test', () => {
         cy.get('.car').then(cars=>{
             console.log(cars);
             const counts = [...cars].map(car => {
-                console.log(car);
                 // car class에 요소중 foward-icon에 값을 길이를 전부체크 해서 노드리스트로 반환
                return car.querySelectorAll('.forward-icon').length;
             });

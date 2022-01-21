@@ -9,9 +9,11 @@ export const carGameStart=()=>{
     randomNum();
 
     // 최종 우승자
-    // 최종 우승자가 같은 사람이 있으면 먼저 도착한 사람이 일등이 됌
+    // 최종 우승자가 같은 사람이 있으면 맨 앞에 있는 사람이 일등이 됌
     let win = getWinner();
+    const winner = win.map(person=>{
+        return person;
+    });
 
-
-    $('#game-winner').innerHTML=`🏆 최종 우승자:${win} 🏆`;
+    $('#game-winner').innerHTML=`🏆 최종 우승자:${winner[0]} 🏆`;
 }
