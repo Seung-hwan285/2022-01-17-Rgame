@@ -221,4 +221,38 @@ const updateRacingArrow =(cars)=>{
 
 ```
 
+### 7. car.spec.js 우승자 테스트
+우승자 테스트를 하는 도중 많은 시간을 투자했습니다.
+간단하게 getWinner() 함수를 호출하고 그값을 호출하면 테스트가 성공할 줄 알았지만, getWinner()에는 빈값이  계속 나오는 현상이 발생하였습니다.
+
+
+
+### 해결방안
+getWinner()함수를 직접 호출하는 것이 아니라  getWinner() 코드를 테스트코드로 비슷하게 짜주었습니다.
+그리고 carName을 호출하는 div 태그 부모태그에 car class를 추가해줌으로써 값을 받아주었습니다.
+이렇게 만들지 않고, car-player로 값을 받게되면 계속 동일한 값이 나오게 되는 현상이 발생합니다.
+
+```javascript
+cy.get('.car').then(cars=>{
+            console.log(cars);
+            const counts = [...cars].map(car => {
+                // car class에 요소중 foward-icon에 값을 길이를 전부체크 해서 노드리스트로 반환
+               return car.querySelectorAll('.forward-icon').length;
+            });
+
+            console.log(counts);
+            const maxCount = Math.max(...counts);
+
+            const winnerList = [];
+
+            counts.forEach((carCount,index)=>{
+
+                if(carCount === maxCount){
+                    winnerList.push(carName[index]);
+                }
+            });
+
+            cy.get('#game-winner').should('have.text',`🏆 최종 우승자:${winnerList[0]} 🏆`);
+```
+
     
