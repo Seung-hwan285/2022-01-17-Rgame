@@ -18,12 +18,15 @@ const carTemplate =(carName)=>{
     caramePatternSpc(carName);
 
     return`<div class="car">
+              
             <div class="car-player mr-2" data-forward="0">${carName}</div>
           </div>`;
 };
 
-
-
+//
+// <div hidden className="relative spinner-container">
+//     <span className="material spinner"></span>
+// </div>
 
 
 export const carTemplateStart=()=>{

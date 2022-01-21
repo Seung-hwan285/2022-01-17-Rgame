@@ -165,7 +165,7 @@ describe('My First Test', () => {
                 }
             });
 
-            cy.get('#game-winner').should('have.text',`🏆 최종 우승자:${winnerList.join(',')} 🏆`);
+            cy.get('#game-winner').should('have.text',`🏆 최종 우승자:${winnerList[0]} 🏆`);
 
         });
     });

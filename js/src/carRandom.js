@@ -11,7 +11,10 @@ export const randomNum=()=>{
     const cars = document.querySelectorAll('.car-player');
 
     for(let i=0; i<carUserCount(); i++){
-        updateRacingArrow(cars);
+
+
+
+        setTimeout(updateRacingArrow(cars),1000);
     }
 
 }
