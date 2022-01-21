@@ -1,3 +1,4 @@
+
 const $=(s)=>document.querySelector(s);
 
 
@@ -11,6 +12,9 @@ export const carUserCount=()=>{
         alert('양의 정수 입력해주세요');
     }
 
+
+
     return userNumber.value;
 
 }
+

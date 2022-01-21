@@ -143,25 +143,30 @@ describe('My First Test', () => {
         cy.get('#btn-submit-count').click();
         cy.get('#btn-submit').click();
 
-        // 위에서 이름 버튼 확인 클릭하면 최종우승자가 바뀜
+        cy.get('#btn-submit-start').click();
 
 
         cy.get('.car').then(cars=>{
-
-            const counst =[...cars].map(car=>{
-                return car.querySelectorAll('.forward-icon').length;
+            console.log(cars);
+            const counts = [...cars].map(car => {
+                console.log(car);
+                // car class에 요소중 foward-icon에 값을 길이를 전부체크 해서 노드리스트로 반환
+               return car.querySelectorAll('.forward-icon').length;
             });
 
+            console.log(counts);
+            const maxCount = Math.max(...counts);
 
-            const maxCount = Math.max(...counst);
             const winnerList = [];
-            counst.forEach((carCount , index)=>{
+
+            counts.forEach((carCount,index)=>{
 
                 if(carCount === maxCount){
                     winnerList.push(carName[index]);
                 }
             });
-            cy.get('#game-winner').should('have.text',`🏆 최종 우승자: ${winnerList.join(',')}🏆`);
+
+            cy.get('#game-winner').should('have.text',`🏆 최종 우승자:${winnerList.join(',')} 🏆`);
 
         });
     });
@@ -184,5 +189,4 @@ describe('My First Test', () => {
        cy.get('#game-winner').should('have.text',"");
        cy.get('#game-process-screen').should('have.text',"");
     });
-
 });

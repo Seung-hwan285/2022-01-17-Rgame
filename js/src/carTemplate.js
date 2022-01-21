@@ -1,5 +1,5 @@
-import {randomNum} from "./carRandom.js";
 import {caramePatternSpc, carNameisDuplicate, carNameLength} from "../Exception/carNameExcpetion.js";
+import {randomNum} from "./carRandom.js";
 import {getWinner} from "./getWinner.js";
 
 
@@ -27,17 +27,15 @@ const carTemplate =(carName)=>{
 
 
 export const carTemplateStart=()=>{
-
     const carInput = $('#car-name');
 
-    const totalCarNames = carInput.value.split(",");
+    const carCount = $('#car-count');
 
-    nameScreen.innerHTML = totalCarNames.map(car=>carTemplate(car)).join("");
-    randomNum();
+    const totalCar =carInput.value.split(',');
 
-    const win = $('#game-winner');
-    win.innerHTML=`🏆 최종 우승자: ${getWinner()}🏆`;
+
+    nameScreen.innerHTML = totalCar.map(car=>carTemplate(car)).join("");
+
+
 };
 
-export class resetStartGame {
-}

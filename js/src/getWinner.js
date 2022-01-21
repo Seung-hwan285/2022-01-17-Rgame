@@ -1,14 +1,19 @@
-
 export const getWinner =()=>{
+
+
     const cars = document.querySelectorAll('.car-player');
 
-    const scores = [...cars].map((car)=>Number(car.dataset.forward));
+    // 자동차 이름 dataset 값 가져오기
+    const counts = [...cars].map(car=>Number(car.dataset.forward));
 
-    const maxScore =Math.max(...scores);
+
+    // 젤 큰값 추출
+    const maxCount = Math.max(...counts);
 
 
+    // return 자동차이름에서 가장 큰값 추출해서 보냄
     return [...cars]
-        .filter((car)=>Number(car.dataset.forward)===maxScore)
-        .map((car) => car.innerHTML);
+        .filter(car => Number(car.dataset.forward) === maxCount)
+        .map(car => car.innerHTML);
 }
 

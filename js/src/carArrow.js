@@ -5,14 +5,15 @@ export const arrowTemplate = () => {
 };
 
 export const updateRacingArrow =(cars)=>{
+
     cars.forEach(car=>{
-        // 4이상이면 화살표 추가
+        // 랜덤값이 4보다 크면
         if(radom() > 4){
 
             car.dataset.forward = Number(car.dataset.forward)+1;
-
-
             car.parentNode.insertAdjacentHTML('beforeend', arrowTemplate());
         }
     });
+
+
 }

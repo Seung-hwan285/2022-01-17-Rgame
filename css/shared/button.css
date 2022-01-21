@@ -6,11 +6,15 @@
     outline: 0;
     border-style: none;
     cursor: pointer;
+
+
 }
 
 .btn-cyan {
     background-color: #00bcd4 !important;
     border-color: #00bcd4 !important;
+    text-align: center;
+    margin-right: 20px;
 }
 
 .btn.btn-cyan:hover {
