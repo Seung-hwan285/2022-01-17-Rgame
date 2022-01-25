@@ -12,8 +12,6 @@ export const randomNum=()=>{
 
     for(let i=0; i<carUserCount(); i++){
 
-
-
         updateRacingArrow(cars);
     }
 

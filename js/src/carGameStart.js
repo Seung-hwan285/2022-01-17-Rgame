@@ -1,7 +1,7 @@
 import {getWinner} from "./getWinner.js";
-import {carTemplateStart} from "./carTemplate.js";
 import {randomNum} from "./carRandom.js";
-import {setTimeClear} from "./carArrow.js";
+
+import {carTemplateStart, setTimeClear} from "./view/carGameview.js";
 
 
 const $=(s)=>document.querySelector(s);
@@ -25,3 +25,16 @@ export const carGameStart=()=>{
     console.log(spinner);
     setTimeClear();
 }
+
+
+function start ( subject ,person){
+    alert(subject);
+    person();
+}
+
+
+function person(){
+    alert('man');
+}
+
+start('math',person);

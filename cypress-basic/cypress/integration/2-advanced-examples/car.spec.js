@@ -188,4 +188,22 @@ describe('My First Test', () => {
        cy.get('#game-winner').should('have.text',"");
        cy.get('#game-process-screen').should('have.text',"");
     });
+
+
+    it('자동차 경주가 진행될 때 2초의 지연시간이 생기는지 테스트',()=>{
+        const carName=['EAST','WEST','SOUTH','NORTH'];
+
+        cy.get('#car-name').type(carName.join(','));
+
+        cy.get('#car-count')
+            .type(1);
+
+        cy.get('#btn-submit-count').click();
+        cy.get('#btn-submit').click();
+
+        cy.get('#btn-submit-start').click();
+
+        cy.clock();
+        cy.tick(500);
+    });
 });

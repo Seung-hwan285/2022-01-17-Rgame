@@ -1,4 +1,5 @@
 import {radom} from "./carRandom.js";
+import {setTimeoutArrow} from "./view/carGameview.js";
 
 export const arrowTemplate = () => {
     return `<div class="forward-icon mt-2">⬇️️</div>`;
@@ -9,18 +10,6 @@ export const arrowTemplate = () => {
 // 화살표 추가되면 버퍼링 지우기
 
 
-
-export const setTimeoutArrow=()=>{
-    return `<div  class="relative spinner-container">
-            <span class="material spinner"></span>
-    </div>`;
-}
-
-export  const setTimeClear =()=>{
-    return setTimeout(function () {
-        alert('축하합니다 게임이 정상적으로 실행되었습니다.');
-    },2000)
-}
 
 export const updateRacingArrow =(cars)=>{
 
