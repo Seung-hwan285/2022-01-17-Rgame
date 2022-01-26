@@ -21,7 +21,7 @@
 
 
 
-import {radom} from "../../../../js/src/carRandom";
+import {radom} from "../../../../js/src/model/carRandom";
 
 describe('My First Test', () => {
     beforeEach('접속', () => {

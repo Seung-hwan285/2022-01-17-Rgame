@@ -11,23 +11,23 @@
 
 
 
-import {carUserCount} from "./src/carUserCount.js";
+
 
 import {carGameStart} from "./src/carGameStart.js";
 import {carTemplateStart, resetStartGame} from "./src/view/carGameview.js";
+import {carInput} from "./src/model/carInput.js";
 
 
 const $=(s)=>document.querySelector(s);
 
+const carComponent = new carInput();
 
 const nameBtn =$('#btn-submit');
 const numberBtn = $('#btn-submit-count');
 const resetBtn = $('#btn-submit-reset');
 const startBtn =$('#btn-submit-start');
 
-
-
 nameBtn.addEventListener("click",carTemplateStart);
-numberBtn.addEventListener("click",carUserCount);
+numberBtn.addEventListener("click",carComponent.getUserCount);
 resetBtn.addEventListener("click",resetStartGame);
 startBtn.addEventListener("click",carGameStart);

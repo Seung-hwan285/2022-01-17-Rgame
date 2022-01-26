@@ -8,8 +8,6 @@ export const setTimeoutArrow=()=>{
     </div>`;
 }
 
-
-
 export  const setTimeClear =()=>{
     return setTimeout(function () {
         alert('축하합니다 게임이 정상적으로 실행되었습니다.');
@@ -28,7 +26,6 @@ export const carTemplate =(carName)=>{
     caramePatternSpc(carName);
 
     return`<div class="car">
-              
             <div class="car-player mr-2" data-forward="0">${carName}</div>
           </div>`;
 };
