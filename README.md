@@ -3,7 +3,7 @@
 ### BDD Assertions
 https://docs.cypress.io/guides/references/assertions#Chai
 
-## 어려웠던 점
+## 회고록
 
 
 ### 1. 차 이름을 화면에 출력
