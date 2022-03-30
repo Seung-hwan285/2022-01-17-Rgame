@@ -1,5 +1,8 @@
 # 2022-01-17-Rgame
 
+## 개요
+자바스크립트 연습을 하기 위해서 소스를 찾아보다 우테코 커리큘림이 잘나와있어서 복기를 해본 프로젝트입니다.
+
 ### BDD Assertions
 https://docs.cypress.io/guides/references/assertions#Chai
 
